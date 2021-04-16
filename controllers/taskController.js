@@ -30,7 +30,27 @@ exports.createTask = async (req, res) => {
 
 exports.getAllTasks = async (req, res) => {
     try {
-        const tasks = await Task.find({ user: req.query.userId});
+
+        const { property, userId } = req.query;
+        let body = { 
+            user: userId,
+        }
+
+        let tasks;
+
+
+       /* if(property) {
+            body = {
+                ...body,
+                property,
+            }
+        }*/
+
+        if(property && property === 'true') {
+            tasks = await Task.find(body).sort({ property: "asc"}).exec();
+        } else {
+            tasks = await Task.find(body);
+        }
         
         res.status(200).json({
             status: 'sucess',

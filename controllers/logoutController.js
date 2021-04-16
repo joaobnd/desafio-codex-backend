@@ -18,4 +18,4 @@ exports.logout = async (req, res) => {
         await Blacklist.create({ token });
 
         res.status(200).json({ message: 'logout efetuado'})
-}
+} 

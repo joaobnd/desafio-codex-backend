@@ -14,6 +14,7 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, 'um usuario precisa de senha'],
+        selected: false
     },
     tasks: [{
         type: mongoose.Schema.Types.ObjectId,
