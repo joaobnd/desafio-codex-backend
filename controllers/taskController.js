@@ -1,7 +1,7 @@
 const Task = require('../models/task');
 const User = require('../models/user');
 
-
+//cria tarefas e associa ao usuario
 exports.createTask = async (req, res) => {
     try {
 
@@ -28,6 +28,9 @@ exports.createTask = async (req, res) => {
     }
 }
 
+/*metodo para listar todas as tarefas do usuario, caso o usuario passe um true no query
+sera listado de maneira ascendente, ou seja das prioridades mais altas para as mais baixas
+*/
 exports.getAllTasks = async (req, res) => {
     try {
 
@@ -38,7 +41,7 @@ exports.getAllTasks = async (req, res) => {
 
         let tasks;
 
-
+        //metodo extra criado para listar somente as altas ou somente as baixas
        /* if(property) {
             body = {
                 ...body,
@@ -66,6 +69,7 @@ exports.getAllTasks = async (req, res) => {
     }
 }
 
+//atualiza as tarefas
 exports.updateTask = async (req, res) => {
     try{
         const userId = req.params.userId;
@@ -94,6 +98,7 @@ exports.updateTask = async (req, res) => {
     }
 }
 
+//remove as tarefas da tabela
 exports.deleteTask = async (req, res) => {
     try {
         const userId = req.params.userId;

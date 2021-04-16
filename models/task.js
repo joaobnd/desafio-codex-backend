@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//model de tarefas associadas a um usuario
 const taskSchema = new mongoose.Schema({
     name: {
         type: String,

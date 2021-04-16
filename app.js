@@ -12,7 +12,9 @@ app.use(express.json());
 //rota publica
 app.use('/auth', authRouter);
 
+//abaixo disso so os usuarios logados podem ter acesso
 app.use(authMiddleware.authentication);
+
 //rota privada
 app.use('/tasks', taskRouter);
 app.use('/logout', logoutRouter);

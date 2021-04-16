@@ -2,6 +2,7 @@ const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const Blacklist = require('../models/blacklist');
 
+//metodo para criar token jwt a partir do id do usuario, uma chave e expira em um dia
 const createUserToken = (userId) => {
     return jwt.sign({ id: userId}, 'heypaulanamoracmg', { expiresIn: 86400});
 }
@@ -41,6 +42,11 @@ exports.login = async (req, res) => {
             res.status(400).json({ error: 'senha errada'})
         }
         const token = createUserToken(user.id)
+
+        /*validateToken checa se o token gerado no login coincide com algum da lista negra
+        isso acontece uma vez a cada milhares de vezes onde o hash gerado é repetido,
+        mas se acontecer será tratado abaixo
+        */
         const validateToken = await Blacklist.findOne({ token })
 
         if(validateToken) {

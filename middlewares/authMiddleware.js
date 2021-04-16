@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const Blacklist = require('../models/blacklist');
 
+//middleware de autenticacao para gerenciar os tokens
 exports.authentication = async (req, res, next) => {
         const auth = req.headers.authorization
 

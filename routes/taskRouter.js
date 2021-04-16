@@ -3,8 +3,9 @@ const { createTask, getAllTasks, updateTask, deleteTask } = require('../controll
 
 const router = express.Router();
 
+//rotas para listar as tarefas e criar
 router.route('/').get(getAllTasks).post(createTask);
-//router.route('/:id').patch(updateTask).delete(deleteTask);
+//rotas para atualizar e remover as tarefas
 router.route('/:id/userId/:userId').patch(updateTask).delete(deleteTask)
 
 

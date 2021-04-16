@@ -1,5 +1,8 @@
 const Blacklist = require('../models/blacklist');
 
+/*controller para logout onde o token gerado no login é "desativado" sendo inserido na tabela
+da blacklist
+*/
 exports.logout = async (req, res) => {
         const auth = req.headers.authorization
 

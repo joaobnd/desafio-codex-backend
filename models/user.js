@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+//model de usuario com uma coleçao de tarefas
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
