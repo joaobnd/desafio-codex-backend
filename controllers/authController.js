@@ -4,7 +4,7 @@ const Blacklist = require('../models/blacklist');
 
 //metodo para criar token jwt a partir do id do usuario, uma chave e expira em um dia
 const createUserToken = (userId) => {
-    return jwt.sign({ id: userId}, 'heypaulanamoracmg', { expiresIn: 86400});
+    return jwt.sign({ id: userId}, 'segredinhonaocontepngm', { expiresIn: 86400});
 }
 
 //metodo para cadastrar usuario
