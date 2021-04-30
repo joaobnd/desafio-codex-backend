@@ -4,10 +4,12 @@ const authRouter = require('./routes/authRouter');
 const taskRouter = require('./routes/taskRouter');
 const logoutRouter = require('./routes/logoutRouter');
 const authMiddleware = require('./middlewares/authMiddleware');
+const cors = require('cors')
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 //rota publica
 app.use('/auth', authRouter);
